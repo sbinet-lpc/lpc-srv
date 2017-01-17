@@ -1,0 +1,11 @@
+[Unit]
+Description=clrbinetsrv Web Server
+Requires=network-online.target
+
+[Service]
+WorkingDirectory=/srv/lpc
+ExecStart=/srv/lpc/lpc-srv
+
+[Install]
+WantedBy=multi-user.target
+
