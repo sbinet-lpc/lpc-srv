@@ -55,6 +55,7 @@ func rootioHandler(w http.ResponseWriter, r *http.Request) error {
 			return err
 		}
 
+		log.Printf("inspecting %q... (from remote=%v)\n", handler.Filename, r.RemoteAddr)
 		out, err := inspectROOT(f, handler.Filename)
 		if err != nil {
 			{
@@ -100,7 +101,6 @@ const rootioPage = `<html>
 `
 
 func inspectROOT(r rootio.Reader, fname string) (string, error) {
-	log.Printf("inspecting %q...\n", fname)
 	f, err := rootio.NewReader(r, fname)
 	if err != nil {
 		return "", err
