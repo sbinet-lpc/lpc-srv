@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/go-hep/rootio"
@@ -32,7 +33,7 @@ func rootioHandler(w http.ResponseWriter, r *http.Request) error {
 			Path  string
 		}{
 			Token: token,
-			Path:  r.URL.Path + "root-file-upload",
+			Path:  strings.Replace(r.URL.Path+"/root-file-upload", "//", "/", -1),
 		}
 
 		err = t.Execute(w, data)
@@ -105,7 +106,7 @@ func inspectROOT(r rootio.Reader, fname string) (string, error) {
 				fmt.Fprintf(w, "  %-20s %-20q %v\n", b.Name(), b.Title(), b.Class())
 			}
 		default:
-			fmt.Fprintf(w, "%-8s %-40s %s\n", k.Class(), k.Name(), k.Title())
+			fmt.Fprintf(w, "%-8s %-40s %s (cycle=%d)\n", k.Class(), k.Name(), k.Title(), k.Cycle())
 		}
 	}
 
