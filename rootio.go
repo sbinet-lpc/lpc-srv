@@ -49,20 +49,6 @@ func rootioHandler(w http.ResponseWriter, r *http.Request) error {
 			return err
 		}
 		defer f.Close()
-		{
-			os.MkdirAll("./rootio-files", 0755)
-			now := time.Now().Unix()
-			o, err := os.Create(fmt.Sprintf(
-				"./rootio-files/%10d-%s", now,
-				handler.Filename,
-			))
-			if err != nil {
-				log.Printf("error creating file: %v\n", err)
-			} else {
-				defer o.Close()
-				io.Copy(o, f)
-			}
-		}
 
 		_, err = f.Seek(0, io.SeekStart)
 		if err != nil {
@@ -71,6 +57,21 @@ func rootioHandler(w http.ResponseWriter, r *http.Request) error {
 
 		out, err := inspectROOT(f, handler.Filename)
 		if err != nil {
+			{
+				os.MkdirAll("./rootio-files", 0755)
+				now := time.Now().Unix()
+				o, err := os.Create(fmt.Sprintf(
+					"./rootio-files/%10d-%s", now,
+					handler.Filename,
+				))
+				if err != nil {
+					log.Printf("error creating file: %v\n", err)
+				} else {
+					defer o.Close()
+					f.Seek(0, io.SeekStart)
+					io.Copy(o, f)
+				}
+			}
 			return err
 		}
 
