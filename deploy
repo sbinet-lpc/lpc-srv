@@ -2,7 +2,7 @@
 
 set -e
 go generate
-go get -v
+go get -v -u
 
 SERVER=root@clrbinetsrv.in2p3.fr
 ssh $SERVER -- systemctl stop lpc-srv.service
