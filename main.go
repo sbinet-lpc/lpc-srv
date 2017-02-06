@@ -29,6 +29,7 @@ type appHandler func(http.ResponseWriter, *http.Request) error
 func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	err := fn(w, r)
 	if err != nil {
+		log.Printf("error: %v\n", err)
 		switch err := err.(type) {
 		case appError:
 			http.Error(w, err.Error(), err.Code)

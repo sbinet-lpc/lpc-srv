@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -48,6 +49,21 @@ func rootioHandler(w http.ResponseWriter, r *http.Request) error {
 			return err
 		}
 		defer f.Close()
+		{
+			os.MkdirAll("./rootio-files", 0755)
+			now := time.Now().Unix()
+			o, err := os.Create(fmt.Sprintf(
+				"./rootio-files/%10d-%s", now,
+				handler.Filename,
+			))
+			if err != nil {
+				log.Printf("error creating file: %v\n", err)
+			} else {
+				defer o.Close()
+				io.Copy(o, f)
+			}
+		}
+
 		_, err = f.Seek(0, io.SeekStart)
 		if err != nil {
 			return err
