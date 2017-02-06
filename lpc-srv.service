@@ -5,6 +5,7 @@ Requires=network-online.target
 [Service]
 WorkingDirectory=/srv/lpc
 ExecStart=/srv/lpc/lpc-srv
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
