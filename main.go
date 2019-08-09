@@ -16,6 +16,7 @@ func main() {
 
 	http.Handle("/", appHandler(rootHandler))
 	http.Handle("/snfusion", snfusionProxy)
+	http.Handle("/fouracc", fouraccProxy)
 	http.Handle("/solid-srv/", appHandler(solidHandler))
 	http.Handle("/rootio-srv/", appHandler(rootioHandler))
 	err := http.ListenAndServe(*addrFlag, nil)
@@ -67,6 +68,7 @@ var rootIndex = `<!doctype html>
 	<ul>
 		<li><a href="http://clrbinetsrv.in2p3.fr:5555"><pre>/fcs-motor-ctl</pre></a></li>
 		<li><a href="/snfusion"><pre>/snfusion</pre></a></li>
+		<li><a href="/fouracc"><pre>/fouracc</pre></a></li>
 		<li><a href="/solid-srv"><pre>/solid-srv</pre></a></li>
 		<li><a href="http://clrbinetsrv.in2p3.fr:8080"><pre>/solid-runctl-srv</pre></a></li>
 		<li><a href="/rootio-srv"><pre>/rootio-srv</pre></a></li>
