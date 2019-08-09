@@ -17,6 +17,6 @@ func init() {
 	})
 	fouraccProxy = httputil.NewSingleHostReverseProxy(&url.URL{
 		Scheme: "http",
-		Host:   "clrbinetsrv.in2p3.fr:7072",
+		Host:   "clrbinetsrv.in2p3.fr:7073",
 	})
 }
