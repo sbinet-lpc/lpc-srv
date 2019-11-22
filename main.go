@@ -69,7 +69,7 @@ var rootIndex = `<!doctype html>
 		<li><a href="http://clrbinetsrv.in2p3.fr:7073"><pre>/fouracc</pre></a></li>
 		<li><a href="/solid-srv"><pre>/solid-srv</pre></a></li>
 		<li><a href="http://clrbinetsrv.in2p3.fr:8080"><pre>/solid-runctl-srv</pre></a></li>
-		<li><a href="http://clrbinetsrv.in2p3.fr:8081"><pre>/eco-lpc</pre></a></li>
+		<li><a href="http://clreco.in2p3.fr"><pre>/eco-lpc</pre></a></li>
 	</ul>
 </body>
 </html>
