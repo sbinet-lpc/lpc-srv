@@ -70,6 +70,7 @@ var rootIndex = `<!doctype html>
 		<li><a href="/solid-srv"><code>/solid-srv</code></a></li>
 		<li><a href="http://clrbinetsrv.in2p3.fr:8080"><code>/solid-runctl-srv</code></a></li>
 		<li><a href="http://clreco.in2p3.fr"><code>/eco-lpc</code></a></li>
+		<li><a href="https://clrbinetsrv.in2p3.fr:2000"><code>UCA-print via PaperCut</code></a></li>
 	</ul>
 </body>
 </html>
