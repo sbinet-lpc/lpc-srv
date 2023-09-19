@@ -64,12 +64,12 @@ var rootIndex = `<!doctype html>
 <body>
 	<h1>Welcome to clrbinetsrv.in2p3.fr.</hi>
 	<ul>
-		<li><a href="http://clrbinetsrv.in2p3.fr:5555"><pre>/fcs-motor-ctl</pre></a></li>
-		<li><a href="/snfusion"><pre>/snfusion</pre></a></li>
-		<li><a href="http://clrbinetsrv.in2p3.fr:7073"><pre>/fouracc</pre></a></li>
-		<li><a href="/solid-srv"><pre>/solid-srv</pre></a></li>
-		<li><a href="http://clrbinetsrv.in2p3.fr:8080"><pre>/solid-runctl-srv</pre></a></li>
-		<li><a href="http://clreco.in2p3.fr"><pre>/eco-lpc</pre></a></li>
+		<li><a href="http://clrbinetsrv.in2p3.fr:5555"><code>/fcs-motor-ctl</code></a></li>
+		<li><a href="/snfusion"><code>/snfusion</code></a></li>
+		<li><a href="http://clrbinetsrv.in2p3.fr:7073"><code>/fouracc</code></a></li>
+		<li><a href="/solid-srv"><code>/solid-srv</code></a></li>
+		<li><a href="http://clrbinetsrv.in2p3.fr:8080"><code>/solid-runctl-srv</code></a></li>
+		<li><a href="http://clreco.in2p3.fr"><code>/eco-lpc</code></a></li>
 	</ul>
 </body>
 </html>
