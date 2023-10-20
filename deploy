@@ -2,10 +2,14 @@
 
 set -e
 go generate
-go get -v -u
+
+/bin/rm -fr ./bin
+mkdir ./bin
+
+CGO_ENABLED=0 go build -o ./bin/lpc-srv -v .
 
 SERVER=root@clrbinetsrv.in2p3.fr
 ssh $SERVER -- systemctl stop lpc-srv.service
-scp `which lpc-srv` $SERVER:/srv/lpc/.
+scp ./bin/lpc-srv $SERVER:/srv/lpc/.
 ssh $SERVER -- systemctl restart lpc-srv.service
 
